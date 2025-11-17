@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица случайных цветов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        td {
+            width: 80px;
+            height: 40px;
+            border: 1px solid #333;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Таблица случайных цветов</h1>
+    
+    <script>
+        function getRandomColor() {
+            const r = Math.round(Math.random() * 255);
+            const g = Math.round(Math.random() * 255);
+            const b = Math.round(Math.random() * 255);
+            
+            const rHex = r.toString(16).padStart(2, '0');
+            const gHex = g.toString(16).padStart(2, '0');
+            const bHex = b.toString(16).padStart(2, '0');
+            
+            return '#' + rHex + gHex + bHex;
+        }
+
+        function createColorTable() {
+            const rows = 9;
+            const cols = 9;
+            let html = '<table>';
+            
+            for (let i = 0; i < rows; i++) {
+                html += '<tr>';
+                for (let j = 0; j < cols; j++) {
+                    const color = getRandomColor();
+                    html += `<td bgcolor="${color}">${color.substring(1).toUpperCase()}</td>`;
+                }
+                html += '</tr>';
+            }
+            
+            html += '</table>';
+            document.body.innerHTML += html;
+        }
+
+        createColorTable();
+    </script>
+</body>
+</html>
