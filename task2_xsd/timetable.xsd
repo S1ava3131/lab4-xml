@@ -37,4 +37,5 @@
   <xs:element name="teacher" type="xs:string"/>
   <xs:element name="room" type="xs:string"/>
   
+
 </xs:schema>
